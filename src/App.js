@@ -12,14 +12,13 @@ function App() {
   const [amount, setAmount] = useState(1);
   const [amountInFromCurrency, setAmountInFromCurrency] = useState();
 
-
-
   useEffect(() =>  {
     fetch(BASE_URL).then(res => res.json()).then(data => {
       const firstCurrency = Object.keys(data.rates)[0]
       setCurrencyOptions([data.base, ...Object.keys(data.rates)])
       setFromCurrency(data.base)
       setToCurrency(firstCurrency)
+      setExchangeRate(data.rates[firstCurrency])
     })
   }, [])
 
