@@ -24,12 +24,14 @@ function App() {
       <h1>Convert</h1>
       <CurrencyRow 
         currencyOptions={currencyOptions}
-        selectCurrency={fromCurrency}
+        selectedCurrency={fromCurrency}
+        onChangeCurrency={e => setFromCurrency(e.target.value)}
       />
       <div className="equals">=</div>
       <CurrencyRow 
         currencyOptions={currencyOptions}
         selectedCurrency={toCurrency}
+        onChangeCurrency={e => setToCurrency(e.target.value)}
       />
     </div>
   );
